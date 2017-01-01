@@ -182,36 +182,7 @@ public class SmsReceiver extends BroadcastReceiver
 
 
 
-    private void sendEmail(Context context) {
-
-
-        Intent intent = new Intent(Intent.ACTION_SENDTO)
-                .setData(new Uri.Builder().scheme("yasmine.khane1988@gmail.com").build())
-                .putExtra(Intent.EXTRA_EMAIL, new String[]{ "aberkane kahina <aberkane.kahina@gmail.com>" })
-                .putExtra(Intent.EXTRA_SUBJECT, "Android Test")
-                .putExtra(Intent.EXTRA_TEXT, "send mail with success ")
-                ;
-        Toast.makeText( context, "sendEmail : T1 ", Toast.LENGTH_SHORT ).show();
-
-        ComponentName emailApp = intent.resolveActivity(context.getPackageManager());
-        ComponentName unsupportedAction = ComponentName.unflattenFromString("com.android.fallback/.Fallback");
-        if (emailApp != null && !emailApp.equals(unsupportedAction))
-            try {
-                // Needed to customise the chooser dialog title since it might default to "Share with"
-                // Note that the chooser will still be skipped if only one app is matched
-                Intent chooser = Intent.createChooser(intent, "Send email with");
-                context.startActivity(chooser);
-                Toast.makeText( context, "success : email sent ", Toast.LENGTH_SHORT ).show();
-
-                return;
-            }
-            catch (ActivityNotFoundException ignored) {
-                Toast.makeText( context, "Exception with activity", Toast.LENGTH_SHORT ).show();
-
-            }
-        Toast.makeText( context, "Couldn't find an email app and account", Toast.LENGTH_SHORT ).show();
-
-    }
+    
 
 
     private boolean isActivated(Context context ) {
