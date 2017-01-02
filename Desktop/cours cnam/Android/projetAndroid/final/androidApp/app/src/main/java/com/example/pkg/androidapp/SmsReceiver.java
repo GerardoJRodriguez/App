@@ -182,7 +182,7 @@ public class SmsReceiver extends BroadcastReceiver
 
 
 
-    
+
 
 
     private boolean isActivated(Context context ) {
